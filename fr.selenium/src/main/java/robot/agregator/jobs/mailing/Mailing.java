@@ -12,7 +12,13 @@ import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
 public class Mailing {
+<<<<<<< HEAD
 
+=======
+	
+	// Classe qui permet la connexion au hote pour l'envoi du mail
+	
+>>>>>>> master
 	private static final String SMTP_HOST1 = "smtp.gmail.com";
 	private static final String LOGIN_SMTP1 = "expertprojet2019@gmail.com";
 	private static final String IMAP_ACCOUNT1 = "imap.gmail.com";
