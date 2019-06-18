@@ -18,6 +18,7 @@ public class MyDriver {
 	public static WebDriver driver;
 	
 	
+	// lancement du driver (chrome par défaut)
 	public MyDriver(String browser) {
 		super();
 		try {
