@@ -18,12 +18,13 @@ public class App {
 		// action qui lance la connexion au browser
 		App1();
 
+		// action pour l'envoi de mail groupé
 		Mailing.sendMessage(ContenuMail.SUBJECT, ContenuMail.TEXT, ContenuMail.DESTINATAIRES, ContenuMail.COPYDEST);
-		// action pour l'envoi du mail
-		// Mailing.sendMessage("Bonjour", "coucou", "sabri.taleb@outlook.com",
-		// "expertprojet2019@gmail.com");
+		
+		// action pour l'envoi du mail simple
+		// Mailing.sendMessage("Bonjour", "coucou", "sabri.taleb@outlook.com","expertprojet2019@gmail.com");
+		
 		// action pour fermer la page
-
 		MyDriver.quitDriver();
 	}
 
