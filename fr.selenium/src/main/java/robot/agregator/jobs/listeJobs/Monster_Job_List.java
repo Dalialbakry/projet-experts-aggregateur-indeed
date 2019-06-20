@@ -8,7 +8,7 @@ import org.openqa.selenium.WebElement;
 
 import robot.agregator.jobs.loaders.MyDriver;
 
-public class Apec_JobList {
+public class Monster_Job_List {
 
 	public static void recupererOffres() {
 
