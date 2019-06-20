@@ -8,11 +8,11 @@ public class JobOpportunitPageActions {
 
 	protected void SearchChoice() {
 
-		MyDriver.driver.findElement(By.id("elementID")).sendKeys("testeur");
+		MyDriver.driver.findElement(By.className(JobOpportunit_IDs.Class_JO_SearchText)).sendKeys("testeur");
 	}
 
 	protected void clickSearchButton() {
-		MyDriver.driver.findElements(By.className(JobOpportunit_IDs.Class_JO_SearchButton)).get(1).click();
+		MyDriver.driver.findElement(By.className(JobOpportunit_IDs.Class_JO_SearchButton)).click();
 	}
 
 }

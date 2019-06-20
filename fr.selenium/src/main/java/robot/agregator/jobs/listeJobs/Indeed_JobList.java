@@ -10,8 +10,7 @@ import robot.agregator.jobs.loaders.MyDriver;
 
 public class Indeed_JobList {
 	
-	public static ArrayList<Offre> listeOffres = new ArrayList<>();
-
+	public static ArrayList<Offre> listeIndeed = new ArrayList<>();
 	
 	public static void recupererOffres() {
 
@@ -22,20 +21,21 @@ public class Indeed_JobList {
 			List<WebElement> jobLocation = MyDriver.driver.findElements(By.cssSelector(".location"));
 			
 			String link = jobs.get(i).getAttribute("href");
-			String title = jobs.get(i).getAttribute("title");
+			String title = jobs.get(i).getAttribute("title").toLowerCase();
 			String summary = jobSummary.get(i).getText();
 			String location = jobLocation.get(i).getText();
+			
 			
 			if (title.contains("testeur")) {
 			
 				Offre offre = new Offre(title, link, summary, location);
 
-				listeOffres.add(offre);
+				listeIndeed.add(offre);
 			}
 		
 
 		}
-		for (Offre offre : listeOffres) {
+		for (Offre offre : listeIndeed) {
 
 			System.out.println(offre);
 		}

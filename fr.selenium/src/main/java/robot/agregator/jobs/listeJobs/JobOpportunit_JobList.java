@@ -10,26 +10,35 @@ import robot.agregator.jobs.loaders.MyDriver;
 
 public class JobOpportunit_JobList {
 
+	public static ArrayList<Offre> listeJobOppIt = new ArrayList<>();
+	
 	public static void recupererOffres() {
 
-		ArrayList<String> listeEmplois = new ArrayList<String>();
-
 		for (int i = 0; i < 3; i++) {
-			List<WebElement> jobs = MyDriver.driver.findElements(By.cssSelector("Class_JO_JobTitle"));
-			List<WebElement> jobSummary = MyDriver.driver.findElements(By.cssSelector("job-advantages"));
-			List<WebElement> jobLocation = MyDriver.driver.findElements(By.cssSelector("Class_JO_City"));
+			List<WebElement> jobs = MyDriver.driver.findElements(By.cssSelector(".table-status-open"));
+			List<WebElement> jobTitle = MyDriver.driver.findElements(By.cssSelector(".job-title"));
+			List<WebElement> jobSummary = MyDriver.driver.findElements(By.cssSelector(".job-title"));
+			List<WebElement> jobLocation = MyDriver.driver.findElements(By.cssSelector(".job-city"));
+			
+			
 			String link = jobs.get(i).getAttribute("href");
-			String title = jobs.get(i).getAttribute("job-title");
-			String summary = jobSummary.get(i).getText();
+			String title = jobTitle.get(i).getText().toLowerCase();
+			String summary = jobTitle.get(i).getText().toLowerCase();
 			String location = jobLocation.get(i).getText();
 
-			listeEmplois.add(link);
-			listeEmplois.add(title);
-			listeEmplois.add(summary);
-			listeEmplois.add(location);
-		}
+			if (title.contains("testeur")) {
+			
+				Offre offre = new Offre(title, link, summary, location);
 
-		System.out.println(listeEmplois);
+				listeJobOppIt.add(offre);
+			}
+		
+
+		}
+		for (Offre offre : listeJobOppIt) {
+
+			System.out.println(offre);
+		}
 	}
 
 }

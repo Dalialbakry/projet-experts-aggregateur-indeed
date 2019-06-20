@@ -11,9 +11,7 @@ public class Offre {
 		setLink(link);
 		setSummary(summary);
 		setLocation(location);
-		
-	}
-	
+		}
 	
 	private String title;
 	private String link;
