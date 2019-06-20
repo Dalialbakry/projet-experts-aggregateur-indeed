@@ -11,6 +11,8 @@ import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
+import robot.agregator.jobs.listeJobs.Indeed_JobList;
+
 public class Mailing {
 
 	// Classe qui permet la connexion au hote pour l'envoi du mail
@@ -21,8 +23,10 @@ public class Mailing {
 	private static final String PASSWORD_SMTP1 = "expert2019",
 
 			destinataires = "dalia@logilune.com,sabri.taleb@outlook.com,nawrassmn@gmail.com,allogo9@yahoo.fr";
+	
 
 	public static void sendMessage(String subject, String text, String destinataires, String copyDest) {
+		
 		// creation de la session
 
 		Properties properties = new Properties();
