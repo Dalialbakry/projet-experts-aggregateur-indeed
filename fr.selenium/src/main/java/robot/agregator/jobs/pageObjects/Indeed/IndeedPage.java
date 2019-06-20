@@ -7,13 +7,13 @@ import robot.agregator.jobs.constants.JobsWebSites;
 import robot.agregator.jobs.loaders.MyDriver;
 
 public class IndeedPage {
-	public static void App1() {
+	
+	public static void OpenWebSite() {
 		new MyDriver();
 		MyDriver.driver.get(JobsWebSites.INDEED_HOME_PAGE);
 	}
 	
-	
-	
+
 	public static void IndeedSearch() {
 		MyDriver.driver.findElement(By.id(Indeed_IDs.ID_SearchJob)).sendKeys("testeur logiciel");
 		MyDriver.driver.findElement(By.id(Indeed_IDs.ID_SearchWhere)).sendKeys((Keys.chord(Keys.CONTROL, "a")));

@@ -38,9 +38,9 @@ public class ApecPage extends AllPages {
 
 	public void performanceChecks() {
 		ApecPageChecks check = new ApecPageChecks();
-		assertEquals();
+		//assertEquals();
 		System.out.println("if wrong we don't see it");
-
+	}
 
 
 	public static void App1() {
