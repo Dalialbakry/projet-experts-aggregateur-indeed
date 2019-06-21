@@ -1,22 +1,26 @@
 package robot.agregator.jobs.listeJobs;
 
+import java.time.LocalDate;
+
 public class Offre {
 
 	public Offre() {
 		
 	}
 	
-	public Offre(String title, String link, String summary, String location) {
+	public Offre(String title, String link, String summary, String location, LocalDate d) {
 		setTitle(title);
 		setLink(link);
 		setSummary(summary);
 		setLocation(location);
+		setPublicationDate(d);
 		}
 	
 	private String title;
 	private String link;
 	private String summary;
 	private String location;
+	private LocalDate publicationDate;
 	
 	
 	public String getTitle() {
@@ -47,8 +51,16 @@ public class Offre {
 	}
 	
 	public String toString() {
-		String s = title+"\n"+link+"\n"+summary+"\n"+location+"\n";
+		String s = publicationDate+"\n"+title+"\n"+link+"\n"+summary+"\n"+location+"\n";
 		return s;
 		
+	}
+
+	public LocalDate getPublicationDate() {
+		return publicationDate;
+	}
+
+	public void setPublicationDate(LocalDate d) {
+		this.publicationDate = d;
 	}
 }
