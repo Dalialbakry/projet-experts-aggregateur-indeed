@@ -1,9 +1,9 @@
 package robot.agregator.jobs.mailing;
 
-import robot.agregator.jobs.listeJobs.Apec_JobList;
-import robot.agregator.jobs.listeJobs.Indeed_JobList;
-import robot.agregator.jobs.listeJobs.JobOpportunit_JobList;
-import robot.agregator.jobs.listeJobs.Offre;
+import robot.agregator.jobs.sites.recherche.Apec_JobList;
+import robot.agregator.jobs.sites.recherche.Indeed_JobList;
+import robot.agregator.jobs.sites.recherche.JobOpportunit_JobList;
+import robot.agregator.jobs.sites.recherche.Offre;
 
 public class ContenuMail {
 

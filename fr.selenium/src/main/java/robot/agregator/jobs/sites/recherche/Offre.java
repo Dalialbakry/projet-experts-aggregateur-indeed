@@ -1,4 +1,4 @@
-package robot.agregator.jobs.listeJobs;
+package robot.agregator.jobs.sites.recherche;
 
 import java.time.LocalDate;
 

@@ -1,17 +1,10 @@
 package robot.agregator.jobs.pageObjects.Apec;
 
-import static org.testng.Assert.assertEquals;
-
-import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
-
 import robot.agregator.jobs.constants.JobsWebSites;
-import robot.agregator.jobs.listeJobs.Apec_JobList;
 import robot.agregator.jobs.loaders.MyDriver;
-import robot.agregator.jobs.pageObjects.AllPages;
-import robot.agregator.jobs.pageObjects.Indeed.Indeed_IDs;
+import robot.agregator.jobs.sites.recherche.Apec_JobList;
 
-public class ApecPage extends AllPages {
+public class ApecPage {
 
 	private static final String APEC_PAGE = "";
 
@@ -25,7 +18,7 @@ public class ApecPage extends AllPages {
 		OpenWebSite();
 		performanceActions();
 		Apec_JobList.recupererOffres();
-		//performanceChecks();
+		// performanceChecks();
 		MyDriver.quitDriver();
 	}
 
@@ -33,16 +26,15 @@ public class ApecPage extends AllPages {
 		ApecPageActions actions = new ApecPageActions();
 		actions.setPoste();
 		actions.setVille();
-		//actions.clickSearch();
-		//actions.filterSearch();
+		// actions.clickSearch();
+		// actions.filterSearch();
 	}
 
 	public static void performanceChecks() {
 		ApecPageChecks check = new ApecPageChecks();
-		//assertEquals();
+		// assertEquals();
 		System.out.println("if wrong we don't see it");
 	}
-
 
 	public static void OpenWebSite() {
 		new MyDriver();

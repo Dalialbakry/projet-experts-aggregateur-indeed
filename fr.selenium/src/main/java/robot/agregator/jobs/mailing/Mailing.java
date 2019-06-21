@@ -11,7 +11,7 @@ import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
-import robot.agregator.jobs.listeJobs.Indeed_JobList;
+import robot.agregator.jobs.sites.recherche.Indeed_JobList;
 
 public class Mailing {
 
