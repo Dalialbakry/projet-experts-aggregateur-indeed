@@ -1,20 +1,22 @@
 package robot.agregator.jobs.pageObjects.JobOpportunit;
 
-import robot.agregator.jobs.app.App;
+import java.util.List;
+
 import robot.agregator.jobs.constants.JobsWebSites;
 import robot.agregator.jobs.loaders.MyDriver;
 import robot.agregator.jobs.pageObjects.Apec.ApecPageChecks;
 import robot.agregator.jobs.sites.recherche.JobOpportunit_JobList;
+import robot.agregator.jobs.sites.recherche.Offre;
 
 public class JobOpportunitPage {
 
-	public static void run() {
+	public static List<Offre> donneMoiLesOffresJobOpp() {
 		OpenWebSite();
 		performanceActions();
-		App.pause(2);
-		JobOpportunit_JobList.recupererOffres();
+		List<Offre> offres = JobOpportunit_JobList.recupererOffres();
 		// performanceChecks();
 		MyDriver.quitDriver();
+		return offres;
 
 	}
 

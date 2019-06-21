@@ -1,8 +1,10 @@
 package robot.agregator.jobs.pageObjects.Apec;
 
+import java.util.List;
+
 import robot.agregator.jobs.constants.JobsWebSites;
 import robot.agregator.jobs.loaders.MyDriver;
-import robot.agregator.jobs.sites.recherche.Apec_JobList;
+import robot.agregator.jobs.sites.recherche.Offre;
 
 public class ApecPage {
 
@@ -14,31 +16,26 @@ public class ApecPage {
 		System.out.println("Welcome to APEC website for job search");
 	}
 
-	public static void run() {
-		OpenWebSite();
-		performanceActions();
-		Apec_JobList.recupererOffres();
-		// performanceChecks();
+	public static List<Offre> donneMoiLesOffresApec() {
+		new MyDriver();
+		MyDriver.driver.get(JobsWebSites.APEC_HOME_PAGE);
+		List<Offre> apecOffres = performActions();
 		MyDriver.quitDriver();
+		return apecOffres;
 	}
 
-	private static void performanceActions() {
+	private static List<Offre> performActions() {
 		ApecPageActions actions = new ApecPageActions();
 		actions.setPoste();
 		actions.setVille();
-		// actions.clickSearch();
-		// actions.filterSearch();
+		actions.filterSearch();
+		return actions.recupererOffres();
 	}
 
 	public static void performanceChecks() {
 		ApecPageChecks check = new ApecPageChecks();
 		// assertEquals();
 		System.out.println("if wrong we don't see it");
-	}
-
-	public static void OpenWebSite() {
-		new MyDriver();
-		MyDriver.driver.get(JobsWebSites.APEC_HOME_PAGE);
 	}
 
 }

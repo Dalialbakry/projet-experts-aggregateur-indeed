@@ -1,9 +1,11 @@
 package robot.agregator.jobs.pageObjects.Indeed;
 
-import robot.agregator.jobs.app.App;
+import java.util.List;
+
 import robot.agregator.jobs.constants.JobsWebSites;
 import robot.agregator.jobs.loaders.MyDriver;
 import robot.agregator.jobs.sites.recherche.Indeed_JobList;
+import robot.agregator.jobs.sites.recherche.Offre;
 
 public class IndeedPage {
 
@@ -13,13 +15,13 @@ public class IndeedPage {
 		System.out.println("\n Welcome to Indeed website for job search");
 	}
 
-	public static void run() {
+	public static List<Offre> donneMoiLesOffresIndeed() {
 		OpenWebSite();
 		performanceActions();
-		App.pause(2);
-		Indeed_JobList.recupererOffres();
+		List<Offre> offresIndeed = Indeed_JobList.recupererOffres();
 		// performanceChecks();
 		MyDriver.quitDriver();
+		return offresIndeed;
 	}
 
 	public static void OpenWebSite() {
