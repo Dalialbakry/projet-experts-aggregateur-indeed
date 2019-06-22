@@ -43,7 +43,7 @@ public class ApecPageActions {
 					.findElements(By.cssSelector(".col-md-9point5.col-xs-12.border-right-solid.ng-binding"));
 			List<WebElement> jobLocationsWE = MyDriver.driver.findElements(By.cssSelector(".ng-scope"));
 			List<WebElement> jobDatesWE = MyDriver.driver
-					.findElements(By.cssSelector(".offre.datePublication.|.date:'shortDate'"));
+					.findElements(By.cssSelector(".pull-left.offre-date"));
 
 			String link = " ";
 			String summary = " ";
@@ -105,8 +105,13 @@ public class ApecPageActions {
 	}
 
 	private String getOfferSummary(int i) {
-		// TODO Auto-generated method stub
-		return null;
+		String summary = "";
+		for (int j = 1; j < 12; j += 4) {
+			List<WebElement> links = MyDriver.driver
+					.findElements(By.cssSelector("ro.goToDetailsOffre(offre,$index)"));
+			summary = links.get(j + 2).getText();
+		}
+		return summary;
 	}
 
 	private LocalDate getOfferPublicationDate(int i) {
