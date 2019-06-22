@@ -1,33 +1,34 @@
 package robot.agregator.jobs.pageObjects.Indeed;
 
-import robot.agregator.jobs.app.App;
-import robot.agregator.jobs.constants.JobsWebSites;
-import robot.agregator.jobs.listeJobs.Indeed_JobList;
-import robot.agregator.jobs.loaders.MyDriver;
-import robot.agregator.jobs.pageObjects.AllPages;
+import java.util.List;
 
-public class IndeedPage extends AllPages{
-	
+import robot.agregator.jobs.constants.JobsWebSites;
+import robot.agregator.jobs.loaders.MyDriver;
+import robot.agregator.jobs.sites.recherche.Indeed_JobList;
+import robot.agregator.jobs.sites.recherche.Offre;
+
+public class IndeedPage {
+
 	// open indeed page
 	public IndeedPage() {
 		super();
 		System.out.println("\n Welcome to Indeed website for job search");
 	}
-	
-	public static void run() {
+
+	public static List<Offre> donneMoiLesOffresIndeed() {
 		OpenWebSite();
 		performanceActions();
-		App.pause(2);
-		Indeed_JobList.recupererOffres();
-		//performanceChecks();
+		List<Offre> offresIndeed = Indeed_JobList.recupererOffres();
+		// performanceChecks();
 		MyDriver.quitDriver();
+		return offresIndeed;
 	}
-	
+
 	public static void OpenWebSite() {
 		new MyDriver();
 		MyDriver.driver.get(JobsWebSites.INDEED_HOME_PAGE);
 	}
-	
+
 	private static void performanceActions() {
 		IndeedPageActions actions = new IndeedPageActions();
 		actions.setPoste();
@@ -35,10 +36,10 @@ public class IndeedPage extends AllPages{
 		actions.clickSearch();
 		actions.filterSearch();
 	}
-	
+
 	public static void performanceChecks() {
 		IndeedPageChecks check = new IndeedPageChecks();
-		//assertEquals();
+		// assertEquals();
 		System.out.println("if wrong we don't see it");
 
 	}
