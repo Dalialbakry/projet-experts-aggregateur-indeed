@@ -21,14 +21,19 @@ public class App {
 		toutesLesOffres.addAll(IndeedPage.donneMoiLesOffresIndeed());
 
 		// APEC //
+		try {
 		toutesLesOffres.addAll(ApecPage.donneMoiLesOffresApec());
-
+		}
+		catch (Exception e) {
+			System.out.println("Pas possible de récupérer offres APEC");
+		}
 		// JobOpportun IT
 		toutesLesOffres.addAll(JobOpportunitPage.donneMoiLesOffresJobOpp());
 
 		// action pour l'envoi de mail groupé avec les offres
 		Mailing.sendMessage(ContenuMail.SUBJECT, ContenuMail.getBody(toutesLesOffres), ContenuMail.DESTINATAIRES,
-				ContenuMail.COPYDEST);
+			ContenuMail.COPYDEST);
+		System.out.println(toutesLesOffres);
 		MyDriver.quitDriver();
 
 	}
