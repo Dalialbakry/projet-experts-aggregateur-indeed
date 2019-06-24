@@ -11,7 +11,7 @@ public class ContenuMail {
 //			+ Indeed_JobList.listeIndeed + "\n*******\n\n APEC \n\n" + Apec_JobList.listeApec
 //			+ "\n*******\n\n Job Opportun IT\n\n" + JobOpportunit_JobList.listeJobOppIt
 //			+ "\n\nCordialement,\n\n l'équipe des experts";
-	public static final String DESTINATAIRES = "sabri.taleb@outlook.com";
+	public static final String DESTINATAIRES = "dalia@logilune.com,sabri.taleb@outlook.com,nawrassmn@gmail.com,allogo9@yahoo.fr";
 	public static final String COPYDEST = "expertprojet2019@gmail.com";
 
 	public static String getBody(List<Offre> toutesLesOffres) {
@@ -22,5 +22,4 @@ public class ContenuMail {
 
 		return body;
 	}
-	//"dalia@logilune.com,sabri.taleb@outlook.com,nawrassmn@gmail.com,allogo9@yahoo.fr";
 }
