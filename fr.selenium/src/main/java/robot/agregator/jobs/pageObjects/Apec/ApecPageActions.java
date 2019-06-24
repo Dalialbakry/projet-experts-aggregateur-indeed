@@ -37,37 +37,41 @@ public class ApecPageActions {
 		for (int i = 0; i < 3; i++) {
 
 			Offre offre = new Offre();
-			offre.setLink(getOfferLink(i));
-			offre.setLocation(getOfferLocation(i));
+			offre.setLink(getOfferLink(2*i));
+			offre.setLocation(getOfferLocation(2*i));
 			offre.setPublicationDate(getOfferPublicationDate(i));
 			offre.setSummary(getOfferSummary(i));
 			offre.setTitle(getOfferTitle(i));
 			offre.setWebsite("APEC");
+			System.out.println(offre);
 		}
+	
+		System.out.println(listeApec);
 		return listeApec;
 	
 	}
 	
 	private String getOfferTitle(int i) {
-		return MyDriver.driver.findElements(By.cssSelector("offre-title ng-binding")).get(i).getText();
+		return MyDriver.driver.findElements(By.cssSelector(".offre-title ng-binding")).get(i).getText();
 	}
 
 	private String getOfferSummary(int i) {
-		return MyDriver.driver.findElements(By.cssSelector("p.detail")).get(i).getText();
+		return MyDriver.driver.findElements(By.cssSelector(".p.detail")).get(i).getText();
 	}
 
 	private LocalDate getOfferPublicationDate(int i) {
-		String dat = MyDriver.driver.findElements(By.cssSelector("pull-left.offre-date")).get(i).getText();
+		String dat = MyDriver.driver.findElements(By.cssSelector(".pull-left.offre-date")).get(i).getText();
+		//dat.replaceAll("/", "-");
 		LocalDate date = LocalDate.parse(dat);
 		return date;
 	}
 
 	private String getOfferLocation(int i) {
-		return MyDriver.driver.findElement(By.cssSelector(".pull-left span.ng-scope")).getText();
+		return MyDriver.driver.findElements(By.cssSelector(".pull-left span.ng-scope")).get(i).getText();
 	}
 
 	private String getOfferLink(int i) {
-		return MyDriver.driver.findElements(By.cssSelector(".offre-title a")).get(i).getText();
+		return MyDriver.driver.findElements(By.cssSelector(".offre-title a")).get(i).getAttribute("href");
 	}
 
 }
